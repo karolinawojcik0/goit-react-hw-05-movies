@@ -18,6 +18,7 @@ export const Home = () => {
           },
         }
       );
+
       setTrendingMovies(response.data.results);
     } catch (error) {
       console.error('Error fetching trending movies:', error);
