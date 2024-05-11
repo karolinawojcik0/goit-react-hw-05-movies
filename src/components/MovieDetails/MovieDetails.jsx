@@ -59,6 +59,15 @@ export const MovieDetails = () => {
           <StyledLink to={`/movies/${movieId}/reviews`}>Reviews</StyledLink>
         </LinksContainer>
       </MovieDetailsInfo>
+      <MoviePoster
+        src={
+          movieDetails.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
+            : defaultImg
+        }
+        width={250}
+        alt="poster"
+      />
 
       <Suspense fallback={<div>Loading cast...</div>}>
         <Routes>
@@ -71,16 +80,6 @@ export const MovieDetails = () => {
           <Route path="/movies/:movieId/reviews" element={<Reviews />} />
         </Routes>
       </Suspense>
-
-      <MoviePoster
-        src={
-          movieDetails.poster_path
-            ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
-            : defaultImg
-        }
-        width={250}
-        alt="poster"
-      />
     </MovieDetailsContainer>
   );
 };
