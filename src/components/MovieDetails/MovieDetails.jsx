@@ -1,8 +1,10 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import axios from 'axios';
 import { useParams, Link, Route, Routes } from 'react-router-dom';
+import { Cast } from '../Cast/Cast';
+import { Reviews } from '../Reviews/Reviews';
 
-const Cast = React.lazy(() => import('./Cast'));
+const Castt = React.lazy(() => import('../Cast/Cast'));
 
 export const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
@@ -40,9 +42,11 @@ export const MovieDetails = () => {
       <p>Release Date: {movieDetails.release_date}</p>
 
       <Link to={`/movies/${movieId}/cast`}>Cast</Link>
+      <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
       <Suspense fallback={<div>Loading cast...</div>}>
         <Routes>
           <Route path="/movies/:movieId/cast" element={<Cast />} />
+          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
         </Routes>
       </Suspense>
     </div>
