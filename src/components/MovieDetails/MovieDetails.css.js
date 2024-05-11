@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const MovieDetailsContainer = styled.div`
 display: flex;
-  align-items: flex-start;
-  width: 100%;
+align-items: flex-start;
+width: 100%;
 `
 export const MovieDetailsInfo = styled.div`
 flex: 1`
@@ -29,7 +29,9 @@ export const LinksContainer = styled.div`
   padding-left: 30px;
 `
 export const StyledLink = styled(Link)`
+color: #415a77;
+font-weight: 700;
 text-decoration: none;
 text-transform: uppercase;
-  display: block;
-  margin-bottom: 5px;`
+display: block;
+margin-bottom: 5px;`
