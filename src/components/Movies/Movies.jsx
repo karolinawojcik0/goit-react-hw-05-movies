@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Search } from './Movies.css';
+import { Search } from '../Search/Search';
 
 export const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);

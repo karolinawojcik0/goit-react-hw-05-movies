@@ -3,6 +3,19 @@ import axios from 'axios';
 import { useParams, Link, Route, Routes } from 'react-router-dom';
 import { Cast } from '../Cast/Cast';
 import { Reviews } from '../Reviews/Reviews';
+import {
+  LinksContainer,
+  MovieDescription,
+  MovieDetailsContainer,
+  MovieDetailsInfo,
+  MoviePoster,
+  MovieRelase,
+  MovieTitle,
+  StyledLink,
+} from './MovieDetails.css';
+
+const defaultImg =
+  'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
 const Castt = React.lazy(() => import('../Cast/Cast'));
 
@@ -36,19 +49,38 @@ export const MovieDetails = () => {
   }
 
   return (
-    <div>
-      <h2>{movieDetails.title}</h2>
-      <p>{movieDetails.overview}</p>
-      <p>Release Date: {movieDetails.release_date}</p>
+    <MovieDetailsContainer>
+      <MovieDetailsInfo>
+        <MovieTitle>{movieDetails.title} </MovieTitle>
+        <MovieDescription>{movieDetails.overview}</MovieDescription>
+        <MovieRelase>Release Date: {movieDetails.release_date}</MovieRelase>
+        <LinksContainer>
+          <StyledLink to={`/movies/${movieId}/cast`}>Cast</StyledLink>
+          <StyledLink to={`/movies/${movieId}/reviews`}>Reviews</StyledLink>
+        </LinksContainer>
+      </MovieDetailsInfo>
 
-      <Link to={`/movies/${movieId}/cast`}>Cast</Link>
-      <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
       <Suspense fallback={<div>Loading cast...</div>}>
         <Routes>
           <Route path="/movies/:movieId/cast" element={<Cast />} />
+        </Routes>
+      </Suspense>
+
+      <Suspense fallback={<div>Loading reviews...</div>}>
+        <Routes>
           <Route path="/movies/:movieId/reviews" element={<Reviews />} />
         </Routes>
       </Suspense>
-    </div>
+
+      <MoviePoster
+        src={
+          movieDetails.poster_path
+            ? `https://image.tmdb.org/t/p/w500/${movieDetails.poster_path}`
+            : defaultImg
+        }
+        width={250}
+        alt="poster"
+      />
+    </MovieDetailsContainer>
   );
 };
