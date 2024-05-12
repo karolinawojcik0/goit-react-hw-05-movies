@@ -1,6 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import axios from 'axios';
-import { useParams, Link, Route, Routes } from 'react-router-dom';
+import { useParams, Route, Routes } from 'react-router-dom';
 import { Cast } from '../Cast/Cast';
 import { Reviews } from '../Reviews/Reviews';
 import {
@@ -16,8 +16,6 @@ import {
 
 const defaultImg =
   'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
-
-const Castt = React.lazy(() => import('../Cast/Cast'));
 
 export const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
