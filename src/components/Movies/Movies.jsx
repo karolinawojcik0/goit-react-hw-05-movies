@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Search } from '../Search/Search';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
 
   const handleSearchSubmit = async query => {
@@ -34,3 +34,4 @@ export const Movies = () => {
     </>
   );
 };
+export default Movies;
