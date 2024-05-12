@@ -5,6 +5,7 @@ export const MovieDetailsContainer = styled.div`
 display: flex;
 align-items: flex-start;
 width: 100%;
+flex-direction: row-reverse
 `
 export const MovieDetailsInfo = styled.div`
 flex: 1`
@@ -29,7 +30,7 @@ letter-spacing: 0.03em
 `
 export const MoviePoster = styled.img`
 width: 250px;
-margin-left: 20px;`
+margin: 20px;`
 
 export const LinksContainer = styled.div`
   margin-top: 50px;
