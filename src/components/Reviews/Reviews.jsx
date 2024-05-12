@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { ReviewsSheet } from './Reviews.css';
+import { ReviewsSheet, ReviewsTitle } from './Reviews.css';
 
 export const Reviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -30,7 +30,7 @@ export const Reviews = () => {
 
   return (
     <div>
-      <h2>Reviews</h2>
+      <ReviewsTitle>Reviews</ReviewsTitle>
       {reviews.length === 0 ? (
         <p>No reviews found.</p>
       ) : (

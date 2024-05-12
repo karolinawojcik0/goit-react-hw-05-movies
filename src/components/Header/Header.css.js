@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
 export const Head = styled.header`
-  background-color: #333;
+  background-color: #415a77;
   padding: 10px;
 
   nav ul {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin-left: 30px;
   }
 
   nav ul li {
     display: inline;
-    margin-right: 10px;
+    margin-right: 50px;
+    text-transform: uppercase;
 
     &:last-child {
       margin-right: 0;
@@ -20,6 +21,7 @@ export const Head = styled.header`
   }
 
   nav ul li a {
+    font-size: 24px;
     color: white;
     text-decoration: none;
 

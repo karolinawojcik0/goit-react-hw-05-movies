@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { CastActors } from './Cast.css';
+import { CastActors, CastTitle } from './Cast.css';
 
 export const Cast = () => {
   const [cast, setCast] = useState([]);
@@ -30,7 +30,7 @@ export const Cast = () => {
 
   return (
     <div>
-      <h2>Cast</h2>
+      <CastTitle>Cast</CastTitle>
       <ul>
         {cast.map(actor => (
           <CastActors key={actor.id}>

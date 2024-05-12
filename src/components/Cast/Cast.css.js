@@ -6,3 +6,7 @@ color: #415a77;
     text-decoration: none;
     display: block;
     margin-bottom: 5px;`
+
+export const CastTitle = styled.h2`
+    color: #1b263b;
+margin-left: 40px;`

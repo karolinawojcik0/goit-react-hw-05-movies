@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
+import { SearchButton, SearchForm, SearchInput } from './Search.ccs';
 
 export const Search = ({ onSearch }) => {
   const [query, setQuery] = useState('');
 
   const handleChange = event => {
-    setQuery(event.target.value);
+    setQuery(event.target.value.trim());
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    onSearch(query);
+    onSearch(query.trim());
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <SearchForm onSubmit={handleSubmit}>
+      <SearchInput
         type="text"
         placeholder="Search for movies..."
         value={query}
         onChange={handleChange}
       />
-      <button type="submit">Search</button>
-    </form>
+      <SearchButton type="submit">Search</SearchButton>
+    </SearchForm>
   );
 };
