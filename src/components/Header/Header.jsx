@@ -5,7 +5,7 @@ import { Head } from './Header.css';
 export const Header = () => {
   return (
     <Head>
-      <div>
+      <>
         <nav>
           <ul>
             <li>
@@ -16,7 +16,7 @@ export const Header = () => {
             </li>
           </ul>
         </nav>
-      </div>
+      </>
     </Head>
   );
 };
