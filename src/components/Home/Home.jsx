@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FilmList, LinkFilms } from './Home.css';
 
-export const Home = () => {
+const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
@@ -39,3 +39,5 @@ export const Home = () => {
     </div>
   );
 };
+
+export default Home;

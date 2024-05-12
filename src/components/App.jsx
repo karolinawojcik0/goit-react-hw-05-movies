@@ -1,22 +1,58 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import { Home } from './Home/Home';
-import { Movies } from './Movies/Movies';
-import { MovieDetails } from './MovieDetails/MovieDetails';
-import { Cast } from './Cast/Cast';
-import { Reviews } from './Reviews/Reviews';
 import { Header } from './Header/Header';
+
+const Home = lazy(() => import('./Home/Home'));
+const Movies = lazy(() => import('./Movies/Movies'));
+const MovieDetails = lazy(() => import('./MovieDetails/MovieDetails'));
+const Cast = lazy(() => import('./Cast/Cast'));
+const Reviews = lazy(() => import('./Reviews/Reviews'));
 
 export const App = () => {
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:movieId" element={<MovieDetails />} />
-        <Route path="/movies/:movieId/cast" element={<Cast />} />
-        <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Home />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/movies"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Movies />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/movies/:movieId/*"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <MovieDetails />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/movies/:movieId/cast"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Cast />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/movies/:movieId/reviews"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Reviews />
+            </Suspense>
+          }
+        />
       </Routes>
     </Router>
   );

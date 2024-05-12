@@ -2,19 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Search } from '../Search/Search';
 
-// export const Searchbar = ({ onSubmit }) => {
-//   const [searchText, setSearchText] = useState('');
-
-//   const handleChange = event => {
-//     setSearchText(event.target.value);
-//   };
-
-//   const handleSubmit = event => {
-//     event.preventDefault();
-//     onSubmit(searchText);
-//     setSearchText('');
-//   };
-
 export const Movies = () => {
   const [searchResults, setSearchResults] = useState([]);
 
@@ -38,7 +25,7 @@ export const Movies = () => {
 
   return (
     <>
-      <Search onSubmit={handleSearchSubmit} />
+      <Search onSearch={handleSearchSubmit} />
       <ul>
         {searchResults.map(movie => (
           <li key={movie.id}>{movie.title}</li>
