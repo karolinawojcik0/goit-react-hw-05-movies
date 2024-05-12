@@ -10,15 +10,22 @@ export const MovieDetailsInfo = styled.div`
 flex: 1`
 
 export const MovieTitle = styled.h2`
-padding: 20px`
+padding: 20px;
+line-height: 1.17;
+letter-spacing: 0.03em`
 
 export const MovieDescription = styled.p`
 width: 50%;
-padding: 0 30px;`
+padding: 0 30px;
+font-size: 18px;
+line-height: 1.17;
+letter-spacing: 0.03em`
 
 export const MovieRelase = styled.p`
 font-size: 10px;
 padding: 0 30px;
+line-height: 1.17;
+letter-spacing: 0.03em
 `
 export const MoviePoster = styled.img`
 width: 250px;
